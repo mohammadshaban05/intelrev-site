@@ -6,6 +6,8 @@
     <title>Intelrev - AI Automation Systems</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -108,16 +110,23 @@
             overflow: hidden;
         }
 
+        .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.25), rgba(0,0,0,0.75));
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+
         .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
-        }
+    pointer-events: none;
+    z-index: 0;
+}
 
         @keyframes rotate {
             from { transform: rotate(0deg); }
@@ -141,7 +150,7 @@
 
         .hero-subheading {
             font-size: clamp(16px, 2vw, 20px);
-            color: var(--text-secondary);
+            color: white;
             max-width: 700px;
             margin: 0 auto 40px;
             line-height: 1.7;
@@ -171,6 +180,26 @@
         .solutions {
             padding: 100px 24px;
             background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solutions::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 140, 0, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .solutions .container {
+            position: relative;
+            z-index: 1;
         }
 
         .section-title {
@@ -191,11 +220,29 @@
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+            transition: left 0.5s;
+        }
+
+        .card:hover::before {
+            left: 100%;
         }
 
         .card:hover {
             border-color: rgba(212, 175, 55, 0.3);
             transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.15);
         }
 
         .card-icon {
@@ -223,6 +270,29 @@
         /* Process Section */
         .process {
             padding: 100px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(45deg, transparent 0%, rgba(212, 175, 55, 0.02) 50%, transparent 100%);
+            animation: slideBackground 15s ease-in-out infinite;
+        }
+
+        @keyframes slideBackground {
+            0%, 100% { transform: translateX(-50%) translateY(-50%); }
+            50% { transform: translateX(0%) translateY(0%); }
+        }
+
+        .process .container {
+            position: relative;
+            z-index: 1;
         }
 
         .process-steps {
@@ -234,6 +304,17 @@
 
         .step {
             position: relative;
+            padding: 24px;
+            border-radius: 8px;
+            background: rgba(26, 26, 26, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.3s;
+        }
+
+        .step:hover {
+            background: rgba(26, 26, 26, 0.6);
+            border-color: rgba(212, 175, 55, 0.2);
+            transform: translateX(8px);
         }
 
         .step-number {
@@ -309,6 +390,28 @@
             border-radius: 12px;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .why-graphic::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(212, 175, 55, 0.05) 60deg,
+                transparent 120deg
+            );
+            animation: rotateGradient 20s linear infinite;
+        }
+
+        @keyframes rotateGradient {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .geometric-shapes {
@@ -357,6 +460,30 @@
         .contact {
             padding: 100px 24px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 1;
         }
 
         .contact h2 {
@@ -400,7 +527,6 @@
             gap: 10px;
         }
 
-
         .footer-links {
             display: flex;
             gap: 24px;
@@ -439,6 +565,7 @@
             width: auto;
             display: block;
         }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -464,6 +591,24 @@
         }
     </style>
 </head>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    VANTA.HALO({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+
+baseColor: 0xb8922e,
+  backgroundColor: 0x050505,
+
+  amplitudeFactor: 0.35,
+  size: 0.9
+    })
+    })
+    </script>
+
+
 <body>
     <!-- Navbar -->
     <nav>
@@ -480,10 +625,12 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="vanta-bg">
         <div class="hero-content">
-            <h1>AI Automation Systems<br>for Real-World Operations</h1>
-            <p class="hero-subheading">Intelrev builds AI-powered automation solutions that reduce manual work, streamline workflows, and turn complex operations into reliable systems.</p>
+            <h1>AI Automation & Digital Systems<br>for Real Business Operations</h1>
+            <p class="hero-subheading">
+                Intelrev designs and deploys production-grade websites, workflow automations, and AI-enabled systems that replace manual processes with reliable, scalable software.
+            </p>
             <a href="#contact" class="btn-primary">Get in Touch</a>
         </div>
     </section>
@@ -494,19 +641,57 @@
             <h2 class="section-title">What We Do</h2>
             <div class="cards">
                 <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>AI Automation</h3>
-                    <p>We design AI-driven workflows that automate repetitive tasks, reduce human error, and improve operational efficiency.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🎙️</div>
-                    <h3>Voice & Conversational AI</h3>
-                    <p>Custom voice-based AI agents for calls, ordering systems, and customer interactions—built for real business use, not demos.</p>
+                    <div class="card-icon">🧠</div>
+                    <h3>Intelligent Web Systems</h3>
+                    <p>
+                        Custom-built websites and internal platforms that go beyond design — integrating forms, data validation, dashboards, and automated backends for real operational use.
+                    </p>
                 </div>
                 <div class="card">
                     <div class="card-icon">⚙️</div>
-                    <h3>Full-Stack Systems</h3>
-                    <p>End-to-end platforms combining frontend interfaces, backend logic, and data pipelines tailored to your business needs.</p>
+                    <h3>Workflow Automation</h3>
+                    <p>
+                        Design and deployment of automated pipelines connecting websites, APIs, spreadsheets, CRMs, and internal tools using n8n and custom integrations.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h3>AI-Enabled Processes</h3>
+                    <p>
+                        Integration of AI models into real workflows including smart intake systems, document handling, internal AI tools, and business process automation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solutions">
+        <div class="container">
+            <h2 class="section-title">Systems & Projects</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Live Registration & Automation Platform</h3>
+                    <p>
+                        Built and deployed a production web system connecting a public-facing website to automated backend workflows.
+                    </p>
+                    <p style="color:#a0a0a0; margin-top:10px;">
+                        • Frontend engineering<br>
+                        • Automated data pipelines (n8n & APIs)<br>
+                        • Cloud deployment<br>
+                        • Real-time data processing
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Client Websites & Internal Tools</h3>
+                    <p>
+                        Designed and deployed multiple production websites and internal systems for clients, integrating automation, forms, and backend services.
+                    </p>
+                    <p style="color:#a0a0a0; margin-top:10px;">
+                        • Full-stack development<br>
+                        • Workflow automation<br>
+                        • System integration<br>
+                        • Deployment & iteration
+                    </p>
                 </div>
             </div>
         </div>
@@ -519,23 +704,23 @@
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Understand the problem</h3>
-                    <p>We start by understanding your operations, constraints, and goals.</p>
+                    <h3>Understand the system</h3>
+                    <p>We analyze workflows, data flow, failure points, and technical constraints.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Design the system</h3>
-                    <p>We architect a solution that fits your workflow—not a generic template.</p>
+                    <h3>Design the architecture</h3>
+                    <p>We design system structure, integrations, and automation pipelines.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Build & deploy</h3>
-                    <p>We implement, test, and deploy production-ready systems.</p>
+                    <p>We implement frontend systems, backend services, and automated workflows.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
                     <h3>Iterate & improve</h3>
-                    <p>Systems evolve as your business grows—we refine continuously.</p>
+                    <p>We optimize reliability, performance, and expand system capabilities.</p>
                 </div>
             </div>
         </div>
@@ -570,7 +755,7 @@
         <div class="container">
             <h2>Let's Build Something Intelligent</h2>
             <p>Have a workflow, system, or idea you want to automate? Reach out and let's talk.</p>
-            <a href="mailto:hello@intelrev.co" class="btn-primary">hello@intelrev.co</a>
+            <a href="mailto:contact@intelrev.co" class="btn-primary">contact@intelrev.co</a>
         </div>
     </section>
 
@@ -578,19 +763,18 @@
     <footer>
         <div class="footer-content">
             <div class="footer-left">
-            <div class="footer-logo">
-                <img src="assets/logo1.png" alt="Intelrev logo" class="footer-logo-img">
-            </div>
-
-                <span style="color: var(--text-secondary); font-size: 14px;">© 2025</span>
+                <div class="footer-logo">
+                    <img src="assets/logo1.png" alt="Intelrev logo" class="footer-logo-img">
+                </div>
+                <span style="color: var(--text-secondary); font-size: 14px;">© 2024</span>
             </div>
             <div class="footer-links">
-                <a href="mailto:hello@intelrev.co">hello@intelrev.co</a>
+                <a href="mailto:contact@intelrev.co">contact@intelrev.co</a>
                 <a href="https://linkedin.com/company/intelrev-solutions" target="_blank">LinkedIn</a>
             </div>
         </div>
         <div class="footer-bottom">
-            AI Automation & Digital Systems
+            Engineering intelligent systems, automation pipelines, and applied AI.
         </div>
     </footer>
 
