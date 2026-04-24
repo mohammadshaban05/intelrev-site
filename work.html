@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="assets/logo1.png">
+    <title>Work — Intelrev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="assets/logo1.png" alt="Intelrev logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#solutions">Solutions</a></li>
+                <li><a href="work.html" class="active">Work</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="work-hero">
+        <div class="container">
+            <span class="section-eyebrow">Our Work</span>
+            <h1>Systems built, shipped,<br>and running in production.</h1>
+            <p>A selection of the websites, automation pipelines, and AI-enabled systems we've designed and deployed for real operational use.</p>
+        </div>
+    </section>
+
+    <!-- Project grid -->
+    <section class="work-grid-section">
+        <div class="container">
+            <div class="work-grid">
+
+                <!--
+                    PROJECT CARD TEMPLATE — to add a new site, copy one <article> block below and update:
+                      • href          → the live URL
+                      • <img src>     → screenshot URL (see note at bottom of grid)
+                      • data-title    → fallback text if screenshot fails to load
+                      • .project-domain, <h3>, and .project-summary
+                -->
+
+                <article class="project-card">
+                    <a class="project-link" href="https://creativemeat.net" target="_blank" rel="noopener noreferrer">
+                        <div class="project-image">
+                            <span class="project-image-fallback">creativemeat.net</span>
+                            <img
+                                src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fcreativemeat.net?w=1200&h=750"
+                                alt="Creative Meat website preview"
+                                loading="lazy"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-domain">creativemeat.net</div>
+                            <h3>Creative Meat</h3>
+                            <p class="project-summary">
+                                Client website designed and shipped end-to-end — from layout and content structure to deployment.
+                            </p>
+                            <span class="project-visit">Visit site <span class="arrow">↗</span></span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <a class="project-link" href="https://abdelhadi-shaban-resume.vercel.app/" target="_blank" rel="noopener noreferrer">
+                        <div class="project-image">
+                            <span class="project-image-fallback">abdelhadi-shaban-resume</span>
+                            <img
+                                src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fabdelhadi-shaban-resume.vercel.app%2F?w=1200&h=750"
+                                alt="Abdelhadi Shaban resume website preview"
+                                loading="lazy"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-domain">abdelhadi-shaban-resume.vercel.app</div>
+                            <h3>Abdelhadi Shaban — Resume Site</h3>
+                            <p class="project-summary">
+                                Personal resume website built and deployed on Vercel — clean, responsive, and content-driven.
+                            </p>
+                            <span class="project-visit">Visit site <span class="arrow">↗</span></span>
+                        </div>
+                    </a>
+                </article>
+
+                <!--
+                    Screenshot note: previews use s.wordpress.com/mshots (no API key required).
+                    The URL must be URL-encoded (https:// → https%3A%2F%2F, / → %2F).
+                    First load can take a few seconds while the service captures the site; subsequent loads are cached.
+                    If you'd rather use your own screenshots, drop PNGs into assets/ and replace the <img src>.
+                -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact">
+        <div class="container">
+            <h2>Have something you want built?</h2>
+            <p>If you're looking to automate a workflow, replace a manual process, or ship a production system — let's talk.</p>
+            <a href="mailto:contact@intelrev.net" class="btn-primary">contact@intelrev.net</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <img src="assets/logo1.png" alt="Intelrev logo" class="footer-logo-img">
+                </div>
+                <span style="color: var(--text-secondary); font-size: 14px;">© 2026</span>
+            </div>
+            <div class="footer-links">
+                <a href="mailto:contact@intelrev.net">contact@intelrev.net</a>
+                <a href="https://linkedin.com/company/intelrev-solutions" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            Engineering intelligent systems, automation pipelines, and applied AI.
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.length <= 1) return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
