@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="arrow-right" viewBox="0 0 24 24">
+        <path d="M5 12h14"/>
+        <path d="m12 5 7 7-7 7"/>
+    </symbol>
+    <symbol id="external-link" viewBox="0 0 24 24">
+        <path d="M15 3h6v6"/>
+        <path d="M10 14 21 3"/>
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+    </symbol>
+    <symbol id="mail" viewBox="0 0 24 24">
+        <rect width="20" height="16" x="2" y="4" rx="2"/>
+        <path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7"/>
+    </symbol>
+    <symbol id="briefcase" viewBox="0 0 24 24">
+        <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+        <rect width="20" height="14" x="2" y="6" rx="2"/>
+    </symbol>
+    <symbol id="layout" viewBox="0 0 24 24">
+        <rect width="18" height="7" x="3" y="3" rx="1"/>
+        <rect width="9" height="7" x="3" y="14" rx="1"/>
+        <rect width="5" height="7" x="16" y="14" rx="1"/>
+    </symbol>
+    <symbol id="workflow" viewBox="0 0 24 24">
+        <circle cx="6" cy="6" r="3"/>
+        <circle cx="18" cy="18" r="3"/>
+        <path d="M8.6 7.5A9 9 0 0 1 16.5 15"/>
+        <path d="M12 6h3a3 3 0 0 1 3 3v6"/>
+    </symbol>
+    <symbol id="brain" viewBox="0 0 24 24">
+        <path d="M9.5 2A3.5 3.5 0 0 0 6 5.5v.2A4 4 0 0 0 4 9.2v.3A4.5 4.5 0 0 0 6.2 17a3.5 3.5 0 0 0 6.3 2"/>
+        <path d="M14.5 2A3.5 3.5 0 0 1 18 5.5v.2a4 4 0 0 1 2 3.5v.3A4.5 4.5 0 0 1 17.8 17a3.5 3.5 0 0 1-6.3 2"/>
+        <path d="M12 7v10"/>
+        <path d="M8 9h2"/>
+        <path d="M14 9h2"/>
+        <path d="M8.5 14H10"/>
+        <path d="M14 14h1.5"/>
+    </symbol>
+    <symbol id="search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="m21 21-4.3-4.3"/>
+    </symbol>
+    <symbol id="compass" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/>
+    </symbol>
+    <symbol id="plug" viewBox="0 0 24 24">
+        <path d="M12 22v-5"/>
+        <path d="M9 8V2"/>
+        <path d="M15 8V2"/>
+        <path d="M18 8v5a6 6 0 0 1-12 0V8z"/>
+    </symbol>
+    <symbol id="sliders" viewBox="0 0 24 24">
+        <path d="M4 21v-7"/>
+        <path d="M4 10V3"/>
+        <path d="M12 21v-9"/>
+        <path d="M12 8V3"/>
+        <path d="M20 21v-5"/>
+        <path d="M20 12V3"/>
+        <path d="M2 14h4"/>
+        <path d="M10 8h4"/>
+        <path d="M18 16h4"/>
+    </symbol>
+    <symbol id="check" viewBox="0 0 24 24">
+        <path d="M20 6 9 17l-5-5"/>
+    </symbol>
+</svg>
