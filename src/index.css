@@ -80,6 +80,28 @@ section {
     stroke-linejoin: round;
 }
 
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 /* Navbar */
 nav {
     position: fixed;
@@ -87,9 +109,15 @@ nav {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(8, 9, 8, 0.86);
-    border-bottom: 1px solid var(--border-soft);
+    background: rgba(8, 9, 8, 0.55);
+    border-bottom: 1px solid transparent;
     backdrop-filter: blur(16px);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+nav.is-scrolled {
+    background: rgba(8, 9, 8, 0.86);
+    border-bottom-color: var(--border-soft);
 }
 
 .nav-content {
@@ -158,11 +186,32 @@ nav {
 
 /* Hero */
 .hero {
+    position: relative;
+    overflow: hidden;
     padding: 132px 24px 68px;
     border-bottom: 1px solid var(--border-soft);
 }
 
+.shader-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Legibility scrim over the animated gradient */
+.shader-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(120% 90% at 18% 30%, rgba(8, 9, 8, 0.82), transparent 58%),
+        linear-gradient(180deg, rgba(8, 9, 8, 0.55), rgba(8, 9, 8, 0.78));
+}
+
 .hero-shell {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
     align-items: center;
@@ -228,6 +277,7 @@ nav {
     font-weight: 700;
     text-decoration: none;
     white-space: nowrap;
+    cursor: pointer;
     transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
@@ -261,7 +311,8 @@ nav {
     padding: 26px;
     border: 1px solid var(--border-soft);
     border-radius: 8px;
-    background: rgba(23, 27, 26, 0.8);
+    background: rgba(23, 27, 26, 0.66);
+    backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
 }
 
@@ -633,10 +684,6 @@ nav {
     text-align: right;
 }
 
-.geometric-shapes {
-    display: none;
-}
-
 /* Contact */
 .contact {
     padding: 78px 24px 98px;
@@ -655,6 +702,14 @@ nav {
     box-shadow: var(--shadow);
 }
 
+.contact-centered {
+    text-align: center;
+}
+
+.contact-centered .btn-primary {
+    margin-top: 24px;
+}
+
 .contact h2 {
     max-width: 780px;
     margin-bottom: 14px;
@@ -662,11 +717,21 @@ nav {
     line-height: 1.12;
 }
 
+.contact-centered h2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .contact p {
     max-width: 680px;
     color: var(--text-secondary);
     font-size: 1.05rem;
     line-height: 1.75;
+}
+
+.contact-centered p {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-note {
@@ -700,6 +765,11 @@ footer {
 
 .footer-left {
     gap: 16px;
+}
+
+.footer-copy {
+    color: var(--text-secondary);
+    font-size: 14px;
 }
 
 .footer-logo-img {
