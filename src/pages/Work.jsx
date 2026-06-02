@@ -43,7 +43,7 @@ export default function Work() {
     <>
       <section className="work-hero">
         <div className="container">
-          <span className="section-eyebrow">Some Our work</span>
+          <span className="section-eyebrow">Examples of Our work</span>
           <h1>
             Systems built, shipped,
             <br />
