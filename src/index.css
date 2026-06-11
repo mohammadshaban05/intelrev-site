@@ -32,6 +32,19 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: rgba(223, 182, 76, 0.85);
+    color: #0d0d0a;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 body::before {
@@ -51,7 +64,8 @@ h2,
 h3 {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
 }
 
 a {
@@ -234,7 +248,7 @@ nav.is-scrolled {
     color: var(--accent);
     font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
@@ -435,7 +449,7 @@ nav.is-scrolled {
 
 .card {
     padding: 28px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover,
@@ -444,6 +458,7 @@ nav.is-scrolled {
 .step:hover {
     transform: translateY(-3px);
     border-color: var(--border-strong);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(223, 182, 76, 0.06);
 }
 
 .card-icon {
@@ -510,7 +525,7 @@ nav.is-scrolled {
 .feature-card {
     min-height: 226px;
     padding: 28px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .feature-card-wide {
@@ -580,11 +595,26 @@ nav.is-scrolled {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
+    counter-reset: step;
 }
 
 .step {
+    position: relative;
     padding: 24px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    counter-increment: step;
+}
+
+.step::after {
+    content: '0' counter(step);
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
 }
 
 .step-icon {
@@ -838,7 +868,7 @@ footer {
 
 .project-card {
     overflow: hidden;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-link {
@@ -859,6 +889,13 @@ footer {
         linear-gradient(315deg, rgba(90, 198, 184, 0.1), transparent 42%),
         var(--surface-muted);
     border-bottom: 1px solid var(--border-soft);
+}
+
+.project-image-meat {
+    background:
+        linear-gradient(135deg, rgba(185, 111, 77, 0.16), transparent 45%),
+        linear-gradient(315deg, rgba(223, 182, 76, 0.12), transparent 42%),
+        var(--surface-muted);
 }
 
 .project-image-resume {
@@ -1155,7 +1192,7 @@ footer {
     }
 
     .nav-links a {
-        font-size: 0.74rem;
+        font-size: 0.8rem;
     }
 
     .logo-img {

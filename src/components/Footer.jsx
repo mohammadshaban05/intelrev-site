@@ -6,7 +6,7 @@ export default function Footer() {
           <div className="footer-logo">
             <img src="/assets/logo1.png" alt="Intelrev logo" className="footer-logo-img" />
           </div>
-          <span className="footer-copy">© 2026</span>
+          <span className="footer-copy">© 2026 Intelrev</span>
         </div>
         <div className="footer-links">
           <a href="mailto:contact@intelrev.net">contact@intelrev.net</a>
